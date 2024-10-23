@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIY ZODIAC GLOSS</title>
+    <style>
+ 
+ body {
+            background-color: #D8BFD8;
+            font-family: Times New Roman, sans-serif;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin: 20px auto;
+            width: 90%;
+            max-width: 600px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            color: #333;
+        }
+
+        /* Embalagem de Gloss */
+        .gloss-container {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            background-color: #EEE;
+            margin: 20px auto;
+            /*border: 2px solid #DDD*/
+            position: relative;
+            border-radius: 10px;
+        }
+
+        .gloss-container img {
+            top: 0;
+            left: 10px;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-size: no-repeat;
+            pointer-events: none;
+        }
+
+        .gloss-color-overlay,
+        .gloss-complemento1-overlay,
+        .gloss-complemento2-overlay{position: absolute;
+    top: 0;
+    left: 0;
+    width: 97%;
+    height: 97%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 2; /* Garante que os complementos fiquem acima da cor */
+    border-radius: 10px;
+    opacity: 1;
+}
+          .gloss-container {
+    position: relative; /* Permite que os elementos filhos sejam posicionados */
+}
+
+.gloss-color-overlay, .gloss-complemento-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 97%;
+    height: 97%;
+    pointer-events: none; /* Impede a interação com o clique */
+    z-index: 1; /* Garante que fiquem acima da imagem principal */
+    background-size: cover;
+    border-radius: 10px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 97%;
+            height: 97%;
+            background-size: cover;
+            background-size: no-repeat;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0;
+            border-radius: 10px;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Formulários */
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            text-align: left;
+        }
+
+        select, input[type="text"], input[type="range"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #6A5ACD;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        button:hover {
+            background-color: #483D8B;
+        }
+
+        #resultado {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>DIY ZODIAC GLOSS</h1>
+
+    <div class="container">
+        <div class="gloss-container">
+            <img src="gloss_design.jpg" alt="Design do Gloss" id="glossImage">
+            <div class="gloss-color-overlay"></div>
+            <div class="gloss-complemento1-overlay"></div>
+            <div class="gloss-complemento2-overlay"></div>
+        </div>
+<form id="glossForm">
+    <label for="essencia">Escolha até 2 Essências:</label>
+    <select id="essencia" multiple>
+        <option value="Uva">Uva</option>
+        <option value="Cereja">Cereja</option>
+        <option value="Morango">Morango</option>
+        <option value="Chocolate">Chocolate</option>
+        <option value="Leite">Leite</option>
+        <option value="Caramelo">Caramelo</option>
+        <option value="Coco">Coco</option>
+        <option value="Pêssego">Pêssego</option>
+        <option value="Melancia">Melancia</option>
+        <option value="Baunilha">Baunilha</option>
+    </select>
+
+        <form id="glossForm">
+            <label for="cor">Escolha uma Cor:</label>
+            <select id="cor">
+                <option value="Amarelo">Amarelo</option>
+                <option value="Vermelho">Vermelho</option>
+                <option value="Roxo">Roxo</option>
+                <option value="Rosa">Rosa</option>
+                <option value="Marrom">Marrom</option>
+                <option value="Azul">Azul</option>
+                <option value="Vinho">Vinho</option>
+                <option value="Verde">Verde</option>
+                <option value="Transparente">Transparente</option>
+                <option value="Nude">Nude</option>
+                <option value="Laranja">Laranja</option>
+            </select>
+
+            <label for="intensidade">Intensidade da Cor:</label>
+            <input type="range" id="intensidade" min="1" max="100">
+
+            <label for="complemento">Escolha até 2 Complementos:</label>
+            <select id="complemento" multiple>
+                <option value="Glitter Dourado">Glitter Dourado</option>
+                <option value="Glitter Prata">Glitter Prata</option>
+                <option value="Lantejoulas Estrelas">Lantejoulas Estrelas</option>
+                <option value="Lantejoulas Borboletas">Lantejoulas Borboletas</option>
+                <option value="Folha de Ouro Dourada">Folha de Ouro Dourada</option>
+                <option value="Folha de Ouro Prata">Folha de Ouro Prata</option>
+                <option value="Folha de Ouro Vermelha">Folha de Ouro Vermelha</option>
+                <option value="Folha de Ouro Preta">Folha de Ouro Preta</option>
+            </select>
+<label for="telefone">Telefone e Nome para Contato:</label>
+<input type="number" id="telefone" placeholder="Digite seu telefone">
+
+            <button type="button" onclick="gerarGloss()">Montar Gloss</button>
+        </form>
+
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        function gerarGloss() {
+            const cor = document.getElementById('cor').value.toLowerCase();
+            const intensidade = document.getElementById('intensidade').value;
+
+const essenciasSelecionadas = Array.from(document.getElementById('essencia').selectedOptions);
+    if (essenciasSelecionadas.length > 2) {
+        alert("Escolha até 2 essências!");
+        return;
+    }
+            const complementosSelecionados = Array.from(document.getElementById('complemento').selectedOptions); 
+if (complementosSelecionados.length>2){alert("Escolha até 2 complementos!"); return;
+}
+
+const telefone = document.getElementById('telefone').value;
+
+if (!telefone) {
+    alert("Por favor, insira seu número de telefone!");
+    return;
+}
+
+// Atualiza a imagem da cor do gloss
+const glossColorOverlay = document.querySelector('.gloss-color-overlay');
+            glossColorOverlay.style.backgroundImage = `url('${cor}.png')`;
+            glossColorOverlay.style.opacity = intensidade / 100;
+            glossColorOverlay.style.display = 'block';
+            
+// Atualiza a imagem da cor do gloss
+if (cor) {
+    const glossColorOverlay = document.querySelector('.gloss-color-overlay');
+    glossColorOverlay.style.backgroundImage = `url('${cor}.png')`;
+    glossColorOverlay.style.opacity = intensidade / 100; // Ajusta a opacidade com base na intensidade
+
+    // Garante que a imagem seja exibida apenas uma vez, removendo qualquer configuração anterior
+    glossColorOverlay.style.display = 'block';
+    glossColorOverlay.style.backgroundRepeat = 'no-repeat';
+    glossColorOverlay.style.backgroundSize = 'cover';
+}
+//Corrige a configuração de opacidade para evitar "eco"
+glossColorOverlay.style.filter = `opacity(${intensidade}%)`;
+glossColorOverlay.style.backgroundRepeat = 'no-repeat';
+    glossColorOverlay.style.backgroundSize = 'cover';
+            // Atualiza os complementos
+
+const complemento1Overlay = document.querySelector('.gloss-complemento1-overlay');
+    const complemento2Overlay = document.querySelector('.gloss-complemento2-overlay');
+
+    complemento1Overlay.style.display = 'none';
+    complemento2Overlay.style.display = 'none';
+
+
+ if (complementosSelecionados.length > 0) {
+        const complemento1 = complementosSelecionados[0].value.toLowerCase().replace(/ /g, '_').replace(/[áãâàä]/g, 'a').replace(/[éêèë]/g, 'e').replace(/[íìîï]/g, 'i').replace(/[óõôòö]/g, 'o').replace(/[úùûü]/g, 'u').replace(/ç/g, 'c');
+        complemento1Overlay.style.backgroundImage = `url('${complemento1}.png')`;
+        complemento1Overlay.style.display = 'block';
+    }
+    if (complementosSelecionados.length > 1) {
+        const complemento2 = complementosSelecionados[1].value.toLowerCase().replace(/ /g, '_').replace(/[áãâàä]/g, 'a').replace(/[éêèë]/g, 'e').replace(/[íìîï]/g, 'i').replace(/[óõôòö]/g, 'o').replace(/[úùûü]/g, 'u').replace(/ç/g, 'c');
+        complemento2Overlay.style.backgroundImage = `url('${complemento2}.png')`;
+        complemento2Overlay.style.display = 'block';
+    }
+
+document.getElementById('resultado').innerHTML = `
+                <h2>Seu Gloss Personalizado:</h2>
+                <p>Essências: ${essenciasSelecionadas.map(e => e.value).join(', ') || 'Nenhuma selecionada'}</p>
+                <p>Cor: ${cor.charAt(0).toUpperCase() + cor.slice(1)}</p>
+                <p>Intensidade da cor: ${intensidade}%</p>
+                <p>Complementos: ${complementosSelecionados.map(c => c.value).join(', ') || 'Nenhum selecionado'}</p>
+                <p>Telefone: ${telefone}</p>
+            `;
+        }
+
+
+        // Eventos para atualizar o gloss em tempo real
+        document.getElementById('cor').addEventListener('change', gerarGloss);
+
+document.getElementById('intensidade').addEventListener('input', gerarGloss);
+
+document.getElementById('complemento').addEventListener('change', gerarGloss);
+
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIY ZODIAC GLOSS</title>
+    <style>
+ 
+ body {
+            background-color: #D8BFD8;
+            font-family: Times New Roman, sans-serif;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin: 20px auto;
+            width: 90%;
+            max-width: 600px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            color: #333;
+        }
+
+        /* Embalagem de Gloss */
+        .gloss-container {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            background-color: #EEE;
+            margin: 20px auto;
+            /*border: 2px solid #DDD*/
+            position: relative;
+            border-radius: 10px;
+        }
+
+        .gloss-container img {
+            top: 0;
+            left: 10px;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-size: no-repeat;
+            pointer-events: none;
+        }
+
+        .gloss-color-overlay,
+        .gloss-complemento1-overlay,
+        .gloss-complemento2-overlay{position: absolute;
+    top: 0;
+    left: 0;
+    width: 97%;
+    height: 97%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 2; /* Garante que os complementos fiquem acima da cor */
+    border-radius: 10px;
+    opacity: 1;
+}
+          .gloss-container {
+    position: relative; /* Permite que os elementos filhos sejam posicionados */
+}
+
+.gloss-color-overlay, .gloss-complemento-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 97%;
+    height: 97%;
+    pointer-events: none; /* Impede a interação com o clique */
+    z-index: 1; /* Garante que fiquem acima da imagem principal */
+    background-size: cover;
+    border-radius: 10px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 97%;
+    height: 97%;
+    background-size: cover;
+    background-size: no-repeat;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    border-radius: 10px;
+    transition: opacity 0.3s ease;
+        }
+
+        /* Formulários */
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            text-align: left;
+        }
+
+        select, input[type="text"], input[type="range"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #6A5ACD;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        button:hover {
+            background-color: #483D8B;
+        }
+
+        #resultado {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>DIY ZODIAC GLOSS</h1>
+
+    <div class="container">
+        <div class="gloss-container">
+            <img src="gloss_design.jpg" alt="Design do Gloss" id="glossImage">
+            <div class="gloss-color-overlay"></div>
+            <div class="gloss-complemento1-overlay"></div>
+            <div class="gloss-complemento2-overlay"></div>
+        </div>
+<form id="glossForm">
+    <label for="essencia">Escolha até 2 Essências:</label>
+    <select id="essencia" multiple>
+        <option value="Uva">Uva</option>
+        <option value="Cereja">Cereja</option>
+        <option value="Morango">Morango</option>
+        <option value="Chocolate">Chocolate</option>
+        <option value="Leite">Leite</option>
+        <option value="Caramelo">Caramelo</option>
+        <option value="Coco">Coco</option>
+        <option value="Pêssego">Pêssego</option>
+        <option value="Melancia">Melancia</option>
+        <option value="Baunilha">Baunilha</option>
+    </select>
+
+        <form id="glossForm">
+            <label for="cor">Escolha uma Cor:</label>
+            <select id="cor">
+                <option value="Amarelo">Amarelo</option>
+                <option value="Vermelho">Vermelho</option>
+                <option value="Roxo">Roxo</option>
+                <option value="Rosa">Rosa</option>
+                <option value="Marrom">Marrom</option>
+                <option value="Azul">Azul</option>
+                <option value="Vinho">Vinho</option>
+                <option value="Verde">Verde</option>
+                <option value="Transparente">Transparente</option>
+                <option value="Nude">Nude</option>
+                <option value="Laranja">Laranja</option>
+            </select>
+
+            <label for="intensidade">Intensidade da Cor:</label>
+            <input type="range" id="intensidade" min="1" max="100">
+
+            <label for="complemento">Escolha até 2 Complementos:</label>
+            <select id="complemento" multiple>
+                <option value="Glitter Dourado">Glitter Dourado</option>
+                <option value="Glitter Prata">Glitter Prata</option>
+                <option value="Lantejoulas Estrelas">Lantejoulas Estrelas</option>
+                <option value="Lantejoulas Borboletas">Lantejoulas Borboletas</option>
+                <option value="Folha de Ouro Dourada">Folha de Ouro Dourada</option>
+                <option value="Folha de Ouro Prata">Folha de Ouro Prata</option>
+                <option value="Folha de Ouro Vermelha">Folha de Ouro Vermelha</option>
+                <option value="Folha de Ouro Preta">Folha de Ouro Preta</option>
+            </select>
+<label for="telefone">Telefone e Nome para Contato:</label>
+<input type="number" id="telefone" placeholder="Digite seu telefone">
+
+            <button type="button" onclick="gerarGloss()">Montar Gloss</button>
+        </form>
+
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        function gerarGloss() {
+            const cor = document.getElementById('cor').value.toLowerCase();
+            const intensidade = document.getElementById('intensidade').value;
+
+const essenciasSelecionadas = Array.from(document.getElementById('essencia').selectedOptions);
+    if (essenciasSelecionadas.length > 2) {
+        alert("Escolha até 2 essências!");
+        return;
+    }
+            const complementosSelecionados = Array.from(document.getElementById('complemento').selectedOptions); 
+if (complementosSelecionados.length>2){alert("Escolha até 2 complementos!"); return;
+}
+
+const telefone = document.getElementById('telefone').value;
+
+if (!telefone) {
+    alert("Por favor, insira seu número de telefone!");
+    return;
+}
+
+// Atualiza a imagem da cor do gloss
+const glossColorOverlay = document.querySelector('.gloss-color-overlay');
+            glossColorOverlay.style.backgroundImage = `url('${cor}.png')`;
+            glossColorOverlay.style.opacity = intensidade / 100;
+            glossColorOverlay.style.display = 'block';
+            
+// Atualiza a imagem da cor do gloss
+if (cor) {
+    const glossColorOverlay = document.querySelector('.gloss-color-overlay');
+    glossColorOverlay.style.backgroundImage = `url('${cor}.png')`;
+    glossColorOverlay.style.opacity = intensidade / 100; // Ajusta a opacidade com base na intensidade
+
+    // Garante que a imagem seja exibida apenas uma vez, removendo qualquer configuração anterior
+    glossColorOverlay.style.display = 'block';
+    glossColorOverlay.style.backgroundRepeat = 'no-repeat';
+    glossColorOverlay.style.backgroundSize = 'cover';
+}
+//Corrige a configuração de opacidade para evitar "eco"
+glossColorOverlay.style.filter = `opacity(${intensidade}%)`;
+glossColorOverlay.style.backgroundRepeat = 'no-repeat';
+    glossColorOverlay.style.backgroundSize = 'cover';
+            // Atualiza os complementos
+
+const complemento1Overlay = document.querySelector('.gloss-complemento1-overlay');
+    const complemento2Overlay = document.querySelector('.gloss-complemento2-overlay');
+
+    complemento1Overlay.style.display = 'none';
+    complemento2Overlay.style.display = 'none';
+
+
+ if (complementosSelecionados.length > 0) {
+        const complemento1 = complementosSelecionados[0].value.toLowerCase().replace(/ /g, '_').replace(/[áãâàä]/g, 'a').replace(/[éêèë]/g, 'e').replace(/[íìîï]/g, 'i').replace(/[óõôòö]/g, 'o').replace(/[úùûü]/g, 'u').replace(/ç/g, 'c');
+        complemento1Overlay.style.backgroundImage = `url('${complemento1}.png')`;
+        complemento1Overlay.style.display = 'block';
+    }
+    if (complementosSelecionados.length > 1) {
+        const complemento2 = complementosSelecionados[1].value.toLowerCase().replace(/ /g, '_').replace(/[áãâàä]/g, 'a').replace(/[éêèë]/g, 'e').replace(/[íìîï]/g, 'i').replace(/[óõôòö]/g, 'o').replace(/[úùûü]/g, 'u').replace(/ç/g, 'c');
+        complemento2Overlay.style.backgroundImage = `url('${complemento2}.png')`;
+        complemento2Overlay.style.display = 'block';
+    }
+
+document.getElementById('resultado').innerHTML = `
+                <h2>Seu Gloss Personalizado:</h2>
+                <p>Essências: ${essenciasSelecionadas.map(e => e.value).join(', ') || 'Nenhuma selecionada'}</p>
+                <p>Cor: ${cor.charAt(0).toUpperCase() + cor.slice(1)}</p>
+                <p>Intensidade da cor: ${intensidade}%</p>
+                <p>Complementos: ${complementosSelecionados.map(c => c.value).join(', ') || 'Nenhum selecionado'}</p>
+                <p>Telefone: ${telefone}</p>
+            `;
+        }
+
+
+        // Eventos para atualizar o gloss em tempo real
+        document.getElementById('cor').addEventListener('change', gerarGloss);
+
+document.getElementById('intensidade').addEventListener('input', gerarGloss);
+
+document.getElementById('complemento').addEventListener('change', gerarGloss);
+
+    </script>
+</body>
+</html>
